@@ -15,17 +15,18 @@ list_of_files = [
     "app.py",
     "store_index.py",
     "static/.gitkeep",
-    "templates/chat.html"
+    "templates/chat.html",
+    "requirements.txt"
 
 ]
 
 
 for filepath in list_of_files:
-   filepath = Path(filepath)
-   filedir, filename = os.path.split(filepath)
+   filepath = Path(filepath)# is to use it for windows
+   filedir, filename = os.path.split(filepath) # split the files and the folder
 
-   if filedir !="":
-      os.makedirs(filedir, exist_ok=True)
+   if filedir !="": # it mean if filedir is not empty
+      os.makedirs(filedir, exist_ok=True)#if the folder exist dont create reacreate the file dont replace 
       logging.info(f"Creating directory; {filedir} for the file {filename}")
 
    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
